@@ -1,39 +1,31 @@
+// Translate the provided string to pig latin.
+
+// Pig Latin takes the first consonant (or consonant cluster) of an English word, moves it to the end of the word and suffixes an "ay".
+
+// If a word begins with a vowel you just add "way" to the end.
+
+// Input strings are guaranteed to be English words in all lowercase.
+
 function translatePigLatin(str) {
-  var strArr = [];
+  var temp = str.split('');
+  var vow = 'aeiou';
+  var res = '';
+  var tempSuffix = [];
   
-  strArr = str.split('');
-  console.log(strArr);
-  
-  for(var i=0;i<strArr.length;i++) {
-    switch(strArr[0]) {
-      case 'a':
-        console.log('a: ' + strArr.slice(strArr[0], strArr[1]));
-        break;
-      case 'e':
-        console.log('e:' + strArr[strArr.indexOf(strArr[i])]);
-        break;
-      case 'i':
-        console.log('i:' + strArr[strArr.indexOf(strArr[i])]);
-        break;
-      case 'o':
-        console.log('o:' + strArr[strArr.indexOf(strArr[i])]);
-        break;
-      case 'u':
-        console.log('u:' + strArr[strArr.indexOf(strArr[i])]);
-        break;
-      case 'y':
-        console.log('y:' + strArr[strArr.indexOf(strArr[i])]);
-        break;
-      default:
-        console.log('default');
+  if(vow.indexOf(temp[0]) !== -1) {
+    return str + 'way';
+  } else {
+    while(vow.indexOf(temp[0]) === -1) {
+      tempSuffix.push(temp[0]);
+      temp.shift();
     }
-    
   }
+  res = temp.join('') + tempSuffix.join('') + 'ay'
   
-  return str;
+  return res;
 }
 
-CHAR AT, INDEX OF
+translatePigLatin("consonant");
 
 translatePigLatin("consonant");
 translatePigLatin("algorithm");
