@@ -1,5 +1,9 @@
 function sumPrimes(num) {
   var myArr = [];
+  
+  if(num % 2 !== 0) {
+    myArr.push(num);
+  }
 
   function isPrime(value) {
       for(var i = 2; i < value; i++) {
